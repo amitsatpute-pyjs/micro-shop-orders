@@ -7,9 +7,9 @@
   "scripts": {
     "start:dev": "nodemon --experimental-specifier-resolution=node --exec ts-node --esm ./src/app/express/index.ts",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "createDb": "ts-node --esm ./src/database/createDB.ts",
-    "migrate": "npx knex migrate:latest --knexfile src/database/knexfile.ts",
-    "knex": "./node_modules/.bin/knex --knexfile src/database/knexfile.ts"
+    "createDb": "npx ts-node --esm ./src/database/createDB.ts",
+    "migrate": "npx ts-node --esm ./node_modules/.bin/knex migrate:latest --knexfile ./src/database/knexfile.ts",
+    "@knex": "./node_modules/.bin/knex --knexfile ./src/database/knexfile.ts"
   },
   "repository": {
     "type": "git",
