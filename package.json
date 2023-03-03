@@ -1,0 +1,33 @@
+{
+  "name": "micro-shop-orders",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.ts",
+  "type": "module",
+  "scripts": {
+    "start:dev": "nodemon --exec ts-node --esm ./src/app/express/index.ts",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/amitsatpute-gslab/micro-shop-orders.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/amitsatpute-gslab/micro-shop-orders/issues"
+  },
+  "homepage": "https://github.com/amitsatpute-gslab/micro-shop-orders#readme",
+  "dependencies": {
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2"
+  },
+  "devDependencies": {
+    "@types/dotenv": "^8.2.0",
+    "@types/express": "^4.17.17",
+    "@types/node": "^18.14.5",
+    "nodemon": "^2.0.21",
+    "ts-node": "^10.9.1"
+  }
+}
