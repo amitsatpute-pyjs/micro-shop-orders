@@ -1,7 +1,9 @@
 import { Router } from "express";
+import orders from "./orders";
+
 const router = Router();
 
-const baseURL = "/a360/v1";
-// router.use(baseURL, users);
+const baseURL = "/";
+router.use(baseURL, orders);
 
 export { router };

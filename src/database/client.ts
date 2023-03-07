@@ -2,6 +2,9 @@ import  Knex  from "knex";
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
 import knexStringcase from "knex-stringcase";
+import dotenv from "dotenv";
+
+dotenv.config({ path: "../../.env" });
 
 const {
   DATABASE_HOST,
@@ -11,6 +14,7 @@ const {
   DATABASE_NAME,
 } = process.env;
 
+console.log("DATA::", DATABASE_HOST)
 const config = knexStringcase({
   client: "mysql",
   connection: {
