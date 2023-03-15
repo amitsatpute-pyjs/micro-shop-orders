@@ -1,0 +1,29 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: order-service-pod
+  labels:
+    name: order-service-pod
+    app: micro-shop
+spec:
+  containers:
+  - name: order-service-app
+    image: micro-order:latest 
+    resources:
+      limits:
+        memory: "128Mi"
+        cpu: "500m"
+    ports:
+      - containerPort: 8081
+    imagePullPolicy: IfNotPresent
+    env:
+      - name: DATABASE_HOST
+        value: "localhost"
+      - name: DATABASE_PORT
+        value: "3306"
+      - name: DATABASE_USER
+        value: "root"
+      - name: DATABASE_PASSWORD
+        value: "password"
+      - name: DATABASE_NAME
+        value: "micro_shop_orders"

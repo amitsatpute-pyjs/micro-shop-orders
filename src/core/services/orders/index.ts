@@ -1,24 +1,25 @@
 import knex from "../../../database/client";
-import {
-  AddOrder,
-  Orders,
-  UpdateOrders,
-} from "../../../boundary/orders";
+import { AddOrder, Orders, UpdateOrders } from "../../../boundary/orders";
 import { generateOrderDetails } from "./dataFormatter";
 
-
-
-export async function listOrders(): Promise<Orders[]> {
+export async function listOrders(): Promise<any> {
   const orders = await knex("orders").select("*").from("orders");
-  return orders;
+  return {
+    message: "Successful",
+    data: orders,
+  };
 }
 
-export async function orderById(id: string): Promise<Orders> {
+export async function orderById(id: string): Promise<any> {
   const order = await knex("orders")
     .select("*")
     .from("orders")
     .where("id", "=", id);
-  return order[0];
+
+  return {
+    message: order.length > 0 ? "Order found" : "Order not found",
+    data: order[0],
+  };
 }
 
 export async function addOrder(orderObj: AddOrder): Promise<any> {
