@@ -5,7 +5,7 @@ import mockOrders from "./mockOrders.js";
 
 async function insertData() {
   await knex("orders").insert(mockOrders);
-  console.log("oreders added");
+  console.log("orders added");
   knex.destroy();
 }
 
