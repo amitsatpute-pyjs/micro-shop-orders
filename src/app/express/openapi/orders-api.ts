@@ -22,7 +22,7 @@ export const apiDoc = {
         produces: ["application/json"],
         responses: {
           "200": {
-            description: "New user is created",
+            description: "New order is created",
             schema: {
               $ref: "#/definitions/AddOrderResponse",
             },
@@ -78,7 +78,7 @@ export const apiDoc = {
         },
       ],
       delete: {
-        summary: "Delete user with given ID",
+        summary: "Delete order with given ID",
         tags: ["Orders"],
         responses: {
           "200": {
@@ -115,7 +115,7 @@ export const apiDoc = {
         ],
         responses: {
           "200": {
-            description: "User is updated",
+            description: "Record updated",
             schema: {
               $ref: "#/definitions/AddOrderResponse",
             },
