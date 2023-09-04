@@ -1,4 +1,4 @@
-import  Knex  from "knex";
+import Knex from "knex";
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
 import knexStringcase from "knex-stringcase";
@@ -12,18 +12,24 @@ const {
   DATABASE_USER,
   DATABASE_PASSWORD,
   DATABASE_NAME,
+  DATABASE_PORT_PG,
+  DATABASE_USER_PG,
+  DATABASE_PASSWORD_PG,
+  USE_MYSQL
 } = process.env;
 
-console.log("DATA::", DATABASE_HOST)
+const flag = parseInt(USE_MYSQL?USE_MYSQL:"1");
+console.log("flag::", flag)
+console.log("DATA::", DATABASE_HOST);
 const config = knexStringcase({
-  client: "mysql",
+  client: flag ? "mysql" : "pg",
   connection: {
     host: DATABASE_HOST,
-    port: DATABASE_PORT,
+    port: flag ? DATABASE_PORT : DATABASE_PORT_PG,
     database: DATABASE_NAME,
-    user: DATABASE_USER,
-    password: DATABASE_PASSWORD,
-    typeCast: function (field:any, next:any) {
+    user: flag ? DATABASE_USER : DATABASE_USER_PG,
+    password: flag ? DATABASE_PASSWORD : DATABASE_PASSWORD_PG,
+    typeCast: function (field: any, next: any) {
       if (field.type === "JSON") {
         return JSON.parse(field.string());
       }
